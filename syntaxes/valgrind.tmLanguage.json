@@ -1,0 +1,73 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Valgrind",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"match": "(==\\d+==) (\\S+.*)?",
+			"captures": {
+				"1": {
+					"name": "comment"
+				},
+				"2": {
+					"name": "keyword"
+				}
+			}
+		},
+		{
+			"match": "(by|at) (0x\\h+):\\s(.+?) \\(((in [0-9\\.\\-\\\\\\/_a-zA-Z]+)|([0-9\\.\\-\\\\/_a-zA-Z]+)(:(\\d+)|))\\)",
+			"name": "text.valgrind.stack",
+			"captures": {
+				"1": {
+					"name": "support.type.valgrind"
+				},
+				"2": {
+					"name": "constant.numeric.valgrind"
+				},
+				"3": {
+					"name": "entity.name.function.valgrind"
+				},
+				"4": {
+					"name": "string.valgrind.filename"
+				},
+				"6": {
+					"name": "string.other.link.valgrind.filename"
+				},
+				"7": {
+					"name": "text.valgrind.stack"
+				},
+				"8": {
+					"name": "constant.numeric.valgrind"
+				}
+			},
+			"comment": "Call stacks."
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.valgrind",
+					"match": "\\b(if|while|for|return)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.valgrind",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.valgrind",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.valgrind"
+}

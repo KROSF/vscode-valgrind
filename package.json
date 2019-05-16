@@ -1,0 +1,30 @@
+{
+    "name": "vscode-valgrind",
+    "displayName": "vscode-valgrind",
+    "description": "Valgrind Syntax Highlighting",
+    "publisher": "krosf",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.34.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KROSF/vscode-valgrind"
+    },
+    "contributes": {
+        "languages": [{
+            "id": "valgrind",
+            "aliases": ["Valgrind", "valgrind"],
+            "extensions": [".valgrind"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "valgrind",
+            "scopeName": "source.valgrind",
+            "path": "./syntaxes/valgrind.tmLanguage.json"
+        }]
+    }
+}
